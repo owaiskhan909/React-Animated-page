@@ -1,0 +1,558 @@
+** {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  width: 100%;
+  height: 72%;
+  background: url(/src/assets/bg.png) no-repeat center center / cover;
+  /* z-index: 2; */
+  opacity: 0.5;
+}
+
+/* Fallback agar image load na ho */
+.container {
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  font-family: sans-serif;
+  color: white;
+  background: linear-gradient(
+    119.9deg,
+    #4c0646 1.18%,
+    #200022 49.71%,
+    #610059 100%
+  );
+}
+.hero {
+  /* padding: 20px; */
+}
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: transparent; /* Adjust as needed */
+}
+
+.logo img {
+  width: 170px;
+  height: auto;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.phone-icon {
+  position: relative;
+  transform: rotate(100deg);
+  padding: 16px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 4px 28px rgba(0, 0, 0, 0.05);
+  font-size: 16px;
+  color: white;
+  transition: all 0.3s ease;
+  animation: shakePhone 2s infinite;
+  cursor: pointer;
+  backdrop-filter: blur(2px);
+
+  /* Glow effect */
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+}
+
+/* Notification dot with pulse animation */
+.phone-icon::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 8px;
+  height: 8px;
+  background: #4caf50;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  animation: pulseDot 1.5s infinite;
+  z-index: 2;
+}
+
+/* Hover effects */
+.phone-icon:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(100deg) scale(1.1);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+  animation: none;
+}
+
+/* Click effect */
+.phone-icon:active {
+  transform: rotate(100deg) scale(0.95);
+}
+
+/* Enhanced shake animation */
+@keyframes shakePhone {
+  0%,
+  100% {
+    transform: rotate(100deg);
+  }
+  15% {
+    transform: rotate(110deg) translateY(-3px);
+  }
+  30% {
+    transform: rotate(90deg) translateY(3px);
+  }
+  45% {
+    transform: rotate(110deg) translateX(3px);
+  }
+  60% {
+    transform: rotate(90deg) translateX(-3px);
+  }
+  75% {
+    transform: rotate(100deg);
+  }
+}
+
+/* Pulsing dot animation */
+@keyframes pulseDot {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Ring animation on hover */
+.phone-icon:hover::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  animation: ringPulse 1.5s infinite;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+}
+
+@keyframes ringPulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+}
+
+.nav-links a {
+  background: #ffffff33;
+  box-shadow: 0px 4px 28px 0px #0000000d;
+  backdrop-filter: blur(60px);
+  border-radius: 60px;
+  padding: 10px 20px;
+  font-family: "Onest", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  opacity: 0.8;
+  background: #ffff;
+  color: black;
+}
+
+.services-link {
+  position: relative;
+}
+
+.arrow-icon {
+  transition: transform 0.3s ease;
+  background: #ffffff26;
+  padding: 3px;
+  font-size: 14px;
+  border-radius: 50%;
+
+  display: inline-block;
+}
+
+.services-link:hover .arrow-icon {
+  background: black;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 15px;
+}
+
+.call-animation-wrap {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.line-link {
+  width: 10px;
+  height: 2px;
+  background-color: black;
+  animation: growLine 1s ease-in-out forwards;
+  transition: background-color 0.3s ease;
+}
+
+.arrow-right-icon {
+  background: #000;
+  color: white;
+  border: 1px solid white;
+  border-radius: 50%;
+  padding: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease, transform 0.3s ease;
+}
+
+.call-animation-wrap:hover .arrow-right-icon {
+  transform: translateX(5px);
+  background-color: #fff;
+  color: #000;
+}
+
+.call-animation-wrap:hover .line-link {
+  background-color: #fff;
+  animation: pulseLine 1s infinite alternate;
+}
+
+/* Line appears from width 0 to 40px */
+@keyframes growLine {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 20px;
+    opacity: 1;
+  }
+}
+
+/* Line pulsates on hover */
+@keyframes pulseLine {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(1.2);
+  }
+}
+
+.audit-btn {
+  background: #000;
+  color: white;
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-family: "Onest", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.audit-btn:hover {
+  background: white;
+  color: black;
+}
+
+.arrow-right {
+  background: #000;
+  color: white;
+  border: 1px solid white;
+  border-radius: 50%;
+  padding: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  transition: transform 0.3s ease;
+}
+
+.nav-actions:hover .arrow-right {
+  transform: translateX(3px);
+}
+
+/* Mobile responsiveness */
+/* @media (max-width: 1024px) {
+  .nav-links {
+    gap: 15px;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+  }
+
+  .audit-btn {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+} */
+.hero-content {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.free-audit {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: #ffffff33;
+  box-shadow: 0px 4px 28px 0px #0000000d;
+  backdrop-filter: blur(60px);
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.hero-content h1 {
+  font-size: 2.8rem;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+/* Typing Animation for "human-led" */
+.human-led-animation {
+  display: inline-block;
+  position: relative;
+  color: #ffc107;
+  font-weight: bold;
+}
+
+.human-led-animation .word {
+  display: inline-block;
+  animation: wordReset 6s linear infinite;
+}
+
+.human-led-animation .word span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: letterTyping 6s linear infinite;
+}
+
+/* Individual letter delays (for "human-led" - 8 letters) */
+.human-led-animation .word span:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.human-led-animation .word span:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.human-led-animation .word span:nth-child(3) {
+  animation-delay: 0.5s;
+}
+.human-led-animation .word span:nth-child(4) {
+  animation-delay: 0.7s;
+}
+.human-led-animation .word span:nth-child(5) {
+  animation-delay: 0.9s;
+}
+.human-led-animation .word span:nth-child(6) {
+  animation-delay: 1.1s;
+}
+.human-led-animation .word span:nth-child(7) {
+  animation-delay: 1.3s;
+}
+.human-led-animation .word span:nth-child(8) {
+  animation-delay: 1.5s;
+}
+
+/* Letter typing animation */
+@keyframes letterTyping {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  5% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  75%,
+  100% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+}
+
+/* Word reset animation - ensures clean restart */
+@keyframes wordReset {
+  0%,
+  75% {
+    opacity: 1;
+  }
+  76%,
+  100% {
+    opacity: 0.5;
+  }
+}
+.subtext {
+  margin-top: 20px;
+  font-size: 1rem;
+  color: #ccc;
+}
+/* Add these new styles */
+.cta-section {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  perspective: 500px;
+}
+
+.consult-btn {
+  background: transparent;
+  border: 2px solid #f500ff;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.consult-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 0, 255, 0.4),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.consult-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(245, 0, 255, 0.3);
+}
+
+.consult-btn:hover::before {
+  left: 100%;
+}
+
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid white;
+  transition: all 0.3s ease;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.brand-para {
+  margin-top: 100px;
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+.brands-marquee {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 80px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+.brands-marquee::before,
+.brands-marquee::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 80px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.brands-marquee::before {
+  left: 0;
+  background: linear-gradient(to right, #200022, transparent);
+}
+
+.brands-marquee::after {
+  right: 0;
+  background: linear-gradient(to left, #200022, transparent);
+}
+
+.brands-track {
+  display: flex;
+  width: fit-content;
+  animation: scrollBrands 25s linear infinite;
+  gap: 50px;
+}
+
+.brands-track img {
+  height: 60px;
+  opacity: 0.9;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
+  transition: transform 0.3s ease;
+}
+
+@keyframes scrollBrands {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+/* .brands-marquee:hover .brands-track {
+  animation-direction: reverse;
+} */
+.brands-track img:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
