@@ -1,1 +1,1 @@
-# React-Animated-page
+This is a modern, animated React landing page built entirely with custom CSS (no Tailwind), focused on performance, design precision, and seamless UI animations. The hero section includes a dynamic headline, icon animations, and a looping brand logo marquee.
